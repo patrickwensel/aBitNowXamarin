@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7EA65C53-A00F-4D92-A03A-01D6732C6D43}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TemplateGuid>{6143fdea-f3c2-4a09-aafa-6e230626515e}</TemplateGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ABitNowMobileApp.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>ABitNowMobileApp.iOS</AssemblyName>
+    <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchDebug>true</MtouchDebug>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <None Include="Entitlements.plist" />
+    <None Include="Info.plist" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="iOSBootstrapper.cs" />
+    <Compile Include="Renderers\MyEntryRenderer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon1024.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon180.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon167.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon152.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon120.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon87.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon80.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon76.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon58.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon40.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon29.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="4.2.0.709249" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.2.0" />
+    <PackageReference Include="Unity">
+      <Version>5.11.1</Version>
+    </PackageReference>
+    <PackageReference Include="Plugin.Permissions">
+      <Version>3.0.0.12</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugins.Settings">
+      <Version>3.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms.PancakeView">
+      <Version>1.3.3</Version>
+    </PackageReference>
+    <PackageReference Include="IntelliAbb.Xamarin.Controls">
+      <Version>1.0.148</Version>
+    </PackageReference>
+    <PackageReference Include="Acr.UserDialogs">
+      <Version>7.0.30</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.FFImageLoading.Forms">
+      <Version>2.4.11.982</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.FFImageLoading.Transformations">
+      <Version>2.4.11.982</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfRating">
+      <Version>17.3.0.14</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfListView">
+      <Version>17.3.0.14</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfRangeSlider">
+      <Version>17.3.0.19</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\ABitNowMobileApp\ABitNowMobileApp.csproj">
+      <Project>{179030B2-AC14-44C7-A40E-D6F018979967}</Project>
+      <Name>ABitNowMobileApp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ABitNowMobileApp.Data\ABitNowMobileApp.Data.csproj">
+      <Project>{A686287F-15FD-47C7-86A4-8F550E4BF1C0}</Project>
+      <Name>ABitNowMobileApp.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DependencyServices\" />
+    <Folder Include="Renderers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ABitNowLogo.png" />
+    <BundleResource Include="Resources\ABitNowLogo%402x.png" />
+    <BundleResource Include="Resources\ABitNowLogo%403x.png" />
+    <BundleResource Include="Resources\Background.png" />
+    <BundleResource Include="Resources\Background%402x.png" />
+    <BundleResource Include="Resources\Background%403x.png" />
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+    <BundleResource Include="Resources\Default-Portrait.png" />
+    <BundleResource Include="Resources\Default-Portrait%402x.png" />
+    <BundleResource Include="Resources\Default.png" />
+    <BundleResource Include="Resources\Default%402x.png" />
+    <BundleResource Include="Resources\FontAwesome5BrandsRegular.otf" />
+    <BundleResource Include="Resources\FontAwesome5Regular.otf" />
+    <BundleResource Include="Resources\FontAwesome5Solid.otf" />
+    <BundleResource Include="Resources\Food1.png" />
+    <BundleResource Include="Resources\Food1%402x.png" />
+    <BundleResource Include="Resources\Food1%403x.png" />
+    <BundleResource Include="Resources\Food2.png" />
+    <BundleResource Include="Resources\Food2%402x.png" />
+    <BundleResource Include="Resources\Food2%403x.png" />
+    <BundleResource Include="Resources\Food3.png" />
+    <BundleResource Include="Resources\Food3%402x.png" />
+    <BundleResource Include="Resources\Food3%403x.png" />
+    <BundleResource Include="Resources\Food4.png" />
+    <BundleResource Include="Resources\Food4%402x.png" />
+    <BundleResource Include="Resources\Food4%403x.png" />
+    <BundleResource Include="Resources\IcoFacebook.png" />
+    <BundleResource Include="Resources\IcoFacebook%402x.png" />
+    <BundleResource Include="Resources\IcoFacebook%403x.png" />
+    <BundleResource Include="Resources\IcoGoogle.png" />
+    <BundleResource Include="Resources\IcoGoogle%402x.png" />
+    <BundleResource Include="Resources\IcoGoogle%403x.png" />
+    <BundleResource Include="Resources\IcoJit.png" />
+    <BundleResource Include="Resources\IcoJit%402x.png" />
+    <BundleResource Include="Resources\IcoJit%403x.png" />
+    <BundleResource Include="Resources\IcoJitGray.png" />
+    <BundleResource Include="Resources\IcoJitGray%402x.png" />
+    <BundleResource Include="Resources\IcoJitGray%403x.png" />
+    <BundleResource Include="Resources\IcoJitLarge.png" />
+    <BundleResource Include="Resources\IcoJitLarge%402x.png" />
+    <BundleResource Include="Resources\IcoJitLarge%403x.png" />
+    <BundleResource Include="Resources\IcoMicrosoft.png" />
+    <BundleResource Include="Resources\IcoMicrosoft%402x.png" />
+    <BundleResource Include="Resources\IcoMicrosoft%403x.png" />
+    <BundleResource Include="Resources\IcoNewUser.png" />
+    <BundleResource Include="Resources\IcoNewUser%402x.png" />
+    <BundleResource Include="Resources\IcoNewUser%403x.png" />
+    <BundleResource Include="Resources\IcoSearchCircle.png" />
+    <BundleResource Include="Resources\IcoSearchCircle%402x.png" />
+    <BundleResource Include="Resources\IcoSearchCircle%403x.png" />
+    <BundleResource Include="Resources\IcoTwitter.png" />
+    <BundleResource Include="Resources\IcoTwitter%402x.png" />
+    <BundleResource Include="Resources\IcoTwitter%403x.png" />
+    <BundleResource Include="Resources\IcoUser.png" />
+    <BundleResource Include="Resources\IcoUser%402x.png" />
+    <BundleResource Include="Resources\IcoUser%403x.png" />
+    <BundleResource Include="Resources\Restaurant1.png" />
+    <BundleResource Include="Resources\Restaurant1%402x.png" />
+    <BundleResource Include="Resources\Restaurant1%403x.png" />
+    <BundleResource Include="Resources\Restaurant2.png" />
+    <BundleResource Include="Resources\Restaurant2%402x.png" />
+    <BundleResource Include="Resources\Restaurant2%403x.png" />
+    <BundleResource Include="Resources\Restaurant3.png" />
+    <BundleResource Include="Resources\Restaurant3%402x.png" />
+    <BundleResource Include="Resources\Restaurant3%403x.png" />
+    <BundleResource Include="Resources\VipTable.png" />
+    <BundleResource Include="Resources\VipTable%402x.png" />
+    <BundleResource Include="Resources\VipTable%403x.png" />
+    <BundleResource Include="Resources\HelveticaNeue.ttc" />
+    <BundleResource Include="Resources\SFProDisplayBold.otf" />
+    <BundleResource Include="Resources\SFProDisplayLight.otf" />
+    <BundleResource Include="Resources\SFProDisplayMedium.otf" />
+    <BundleResource Include="Resources\SFProDisplayRegular.otf" />
+    <BundleResource Include="Resources\FindVIPTable.png" />
+    <BundleResource Include="Resources\FindVIPTable%402x.png" />
+    <BundleResource Include="Resources\FindVIPTable%403x.png" />
+    <BundleResource Include="Resources\RightArrow.png" />
+    <BundleResource Include="Resources\RightArrow%402x.png" />
+    <BundleResource Include="Resources\RightArrow%403x.png" />
+    <BundleResource Include="Resources\IcoSearchGray.png" />
+    <BundleResource Include="Resources\IcoSearchGray%402x.png" />
+    <BundleResource Include="Resources\IcoSearchGray%403x.png" />
+    <BundleResource Include="Resources\IcoQuestionMark.png" />
+    <BundleResource Include="Resources\IcoQuestionMark%402x.png" />
+    <BundleResource Include="Resources\IcoQuestionMark%403x.png" />
+    <BundleResource Include="Resources\IcoJitGrayPositive.png" />
+    <BundleResource Include="Resources\IcoJitGrayPositive%402x.png" />
+    <BundleResource Include="Resources\IcoJitGrayPositive%403x.png" />
+    <BundleResource Include="Resources\IcoMapPin.png" />
+    <BundleResource Include="Resources\IcoMapPin%402x.png" />
+    <BundleResource Include="Resources\IcoMapPin%403x.png" />
+    <BundleResource Include="Resources\IcoPin.png" />
+    <BundleResource Include="Resources\IcoPin%402x.png" />
+    <BundleResource Include="Resources\IcoPin%403x.png" />
+    <BundleResource Include="Resources\IcoSearchPurple.png" />
+    <BundleResource Include="Resources\IcoSearchPurple%402x.png" />
+    <BundleResource Include="Resources\IcoSearchPurple%403x.png" />
+    <BundleResource Include="Resources\IcoJitGrayLarge.png" />
+    <BundleResource Include="Resources\IcoJitGrayLarge%402x.png" />
+    <BundleResource Include="Resources\IcoJitGrayLarge%403x.png" />
+    <BundleResource Include="Resources\IcoJitPurple.png" />
+    <BundleResource Include="Resources\IcoJitPurple%402x.png" />
+    <BundleResource Include="Resources\IcoJitPurple%403x.png" />
+  </ItemGroup>
+</Project>

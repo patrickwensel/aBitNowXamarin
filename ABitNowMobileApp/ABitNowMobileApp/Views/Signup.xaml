@@ -1,0 +1,356 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:constants="clr-namespace:ABitNowMobileApp.Constants"
+             xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:behaviors="clr-namespace:ABitNowMobileApp.Behaviors"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="ABitNowMobileApp.Views.Signup">
+    <ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand"
+              VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"
+                               x:Name="FirstRow" />
+                <RowDefinition Height="120" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Image Grid.Row="0"
+                   Grid.Column="0"
+                   Grid.RowSpan="3"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="FillAndExpand"
+                   Aspect="Fill"
+                   Source="Background.png" />
+            <BoxView Grid.Row="0"
+                     Grid.Column="0"
+                     Grid.RowSpan="3"
+                     HorizontalOptions="FillAndExpand"
+                     VerticalOptions="FillAndExpand"
+                     Opacity="0.5"
+                     BackgroundColor="{x:Static constants:AppThemeConstants.GradientPurpleColor}" />
+            <Image Grid.Row="1"
+                   Grid.Column="0"
+                   Margin="20,10"
+                   HorizontalOptions="Start"
+                   VerticalOptions="Center"
+                   Source="ABitNowLogo" />
+            <ScrollView Grid.Row="0"
+                        Grid.Column="0"
+                        Grid.RowSpan="3"
+                        x:Name="MainScroll"
+                        BackgroundColor="Transparent"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand">
+                <pancakeview:PancakeView HorizontalOptions="FillAndExpand"
+                                         VerticalOptions="FillAndExpand"
+                                         Style="{StaticResource BottomControlContainer}"
+                                         x:Name="FrmLoginContent"
+                                         Padding="20">
+                    <StackLayout HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="FillAndExpand"
+                                 Orientation="Vertical">
+                        <StackLayout.Spacing>
+                            <OnPlatform x:TypeArguments="x:Double"
+                                        iOS="10"
+                                        Android="5" />
+                        </StackLayout.Spacing>
+                        <Grid HorizontalOptions="FillAndExpand"
+                              VerticalOptions="Start"
+                              ColumnSpacing="6">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Row="0"
+                                   Grid.Column="0"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Center"
+                                   HeightRequest="37"
+                                   WidthRequest="37"
+                                   Source="IcoNewUser" />
+                            <Label Grid.Row="0"
+                                   Grid.Column="1"
+                                   Style="{StaticResource TitleLabelStyle}"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="FillAndExpand"
+                                   VerticalTextAlignment="Center"
+                                   Text="Register" />
+                            <Frame Grid.Row="0"
+                                   Grid.Column="2"
+                                   HorizontalOptions="End"
+                                   VerticalOptions="Center"
+                                   BackgroundColor="{x:Static constants:AppThemeConstants.LightBlueColor3}"
+                                   CornerRadius="5"
+                                   Padding="6">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding RegisterLaterCommand}"
+                                                          NumberOfTapsRequired="1" />
+                                </Frame.GestureRecognizers>
+                                <Label HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       Style="{StaticResource InfoLabelStyle}">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="I'll do it later "
+                                                  FontFamily="{StaticResource SFProDisplayMedium}" />
+                                            <Span Text="&#xf138;"
+                                                  FontFamily="{StaticResource FontAwesomeSolid}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </Frame>
+                        </Grid>
+
+                        <Label Style="{StaticResource HeaderLabelStyle}"
+                               Text="Names">
+                            <Label.Margin>
+                                <OnPlatform x:TypeArguments="Thickness"
+                                            iOS="0,15,0,0"
+                                            Android="0,8,0,0" />
+                            </Label.Margin>
+                        </Label>
+                        <StackLayout HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="Start"
+                                     Orientation="Horizontal">
+                            <StackLayout.Spacing>
+                                <OnPlatform x:TypeArguments="x:Double"
+                                            iOS="6"
+                                            Android="4" />
+                            </StackLayout.Spacing>
+                            <StackLayout HorizontalOptions="FillAndExpand"
+                                         VerticalOptions="Start">
+                                <StackLayout.Spacing>
+                                    <OnPlatform x:TypeArguments="x:Double"
+                                                iOS="6"
+                                                Android="4" />
+                                </StackLayout.Spacing>
+                                <Entry HorizontalOptions="FillAndExpand"
+                                       VerticalOptions="Start"
+                                       Placeholder="Name"
+                                       Text="{Binding Name}" />
+                                <BoxView HorizontalOptions="FillAndExpand"
+                                         VerticalOptions="Start"
+                                         HeightRequest="1"
+                                         Color="{x:Static constants:AppThemeConstants.SilverColor}" />
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="FillAndExpand"
+                                         VerticalOptions="Start">
+                                <StackLayout.Spacing>
+                                    <OnPlatform x:TypeArguments="x:Double"
+                                                iOS="6"
+                                                Android="4" />
+                                </StackLayout.Spacing>
+                                <Entry HorizontalOptions="FillAndExpand"
+                                       VerticalOptions="Start"
+                                       Placeholder="Last Name"
+                                       Text="{Binding LastName}" />
+                                <BoxView HorizontalOptions="FillAndExpand"
+                                         VerticalOptions="Start"
+                                         HeightRequest="1"
+                                         Color="{x:Static constants:AppThemeConstants.SilverColor}" />
+                            </StackLayout>
+                        </StackLayout>
+
+                        <Label Style="{StaticResource HeaderLabelStyle}"
+                               Text="Mobile Number">
+                            <Label.Margin>
+                                <OnPlatform x:TypeArguments="Thickness"
+                                            iOS="0,15,0,0"
+                                            Android="0,8,0,0" />
+                            </Label.Margin>
+                        </Label>
+                        <StackLayout HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="Start">
+                            <StackLayout.Spacing>
+                                <OnPlatform x:TypeArguments="x:Double"
+                                            iOS="6"
+                                            Android="4" />
+                            </StackLayout.Spacing>
+                            <Entry HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="Start"
+                                   Placeholder="+1 0000 000 000"
+                                   Text="{Binding MobileNumber}">
+                                <Entry.Behaviors>
+                                    <behaviors:MaskedBehavior Mask="+1 XXXX XXX XXX" />
+                                </Entry.Behaviors>
+                            </Entry>
+                            <BoxView HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="Start"
+                                     HeightRequest="1"
+                                     Color="{x:Static constants:AppThemeConstants.SilverColor}" />
+                        </StackLayout>
+
+                        <Label Style="{StaticResource HeaderLabelStyle}"
+                               Text="Email">
+                            <Label.Margin>
+                                <OnPlatform x:TypeArguments="Thickness"
+                                            iOS="0,15,0,0"
+                                            Android="0,8,0,0" />
+                            </Label.Margin>
+                        </Label>
+                        <StackLayout HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="Start">
+                            <StackLayout.Spacing>
+                                <OnPlatform x:TypeArguments="x:Double"
+                                            iOS="6"
+                                            Android="4" />
+                            </StackLayout.Spacing>
+                            <Entry HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="Start"
+                                   Placeholder="example@sample.com"
+                                   Text="{Binding Email}" />
+                            <BoxView HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="Start"
+                                     HeightRequest="1"
+                                     Color="{x:Static constants:AppThemeConstants.SilverColor}" />
+                        </StackLayout>
+
+                        <Label Style="{StaticResource HeaderLabelStyle}"
+                               Text="Create a password">
+                            <Label.Margin>
+                                <OnPlatform x:TypeArguments="Thickness"
+                                            iOS="0,15,0,0"
+                                            Android="0,8,0,0" />
+                            </Label.Margin>
+                        </Label>
+                        <StackLayout HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="Start">
+                            <StackLayout.Spacing>
+                                <OnPlatform x:TypeArguments="x:Double"
+                                            iOS="6"
+                                            Android="4" />
+                            </StackLayout.Spacing>
+                            <Entry HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="Start"
+                                   IsPassword="True"
+                                   Placeholder="Make a new password"
+                                   Text="{Binding Password}" />
+                            <BoxView HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="Start"
+                                     HeightRequest="1"
+                                     Color="{x:Static constants:AppThemeConstants.SilverColor}" />
+                        </StackLayout>
+
+                        <StackLayout HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="Start">
+                            <StackLayout.Spacing>
+                                <OnPlatform x:TypeArguments="x:Double"
+                                            iOS="6"
+                                            Android="4" />
+                            </StackLayout.Spacing>
+                            <StackLayout.Margin>
+                                <OnPlatform x:TypeArguments="Thickness"
+                                            iOS="0,15,0,0"
+                                            Android="0,8,0,0" />
+                            </StackLayout.Margin>
+                            <Entry HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="Start"
+                                   IsPassword="True"
+                                   Placeholder="Repeat the new password"
+                                   Text="{Binding ConfirmPassword}" />
+                            <BoxView HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="Start"
+                                     HeightRequest="1"
+                                     Color="{x:Static constants:AppThemeConstants.SilverColor}" />
+                        </StackLayout>
+
+                        <Button HorizontalOptions="FillAndExpand"
+                                VerticalOptions="Start"
+                                BackgroundColor="{x:Static constants:AppThemeConstants.GradientPurpleColor}"
+                                Command="{Binding RegisterCommand}"
+                                Text="Create a new account">
+                            <Button.HeightRequest>
+                                <OnPlatform x:TypeArguments="x:Double"
+                                            iOS="50"
+                                            Android="44" />
+                            </Button.HeightRequest>
+                        </Button>
+                        <Label Style="{StaticResource SmallSilverHeaderStyle}"
+                               Text="Use another service to log in."
+                               IsVisible="{Binding HasAnyExternalLogin}">
+                            <Label.Margin>
+                                <OnPlatform x:TypeArguments="Thickness"
+                                            iOS="0,15,0,0"
+                                            Android="0,8,0,0" />
+                            </Label.Margin>
+                        </Label>
+                        <StackLayout HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="Start"
+                                     IsVisible="{Binding HasAnyExternalLogin}"
+                                     BindableLayout.ItemsSource="{Binding SocialButtons}">
+                            <StackLayout.Spacing>
+                                <OnPlatform x:TypeArguments="x:Double"
+                                            iOS="6"
+                                            Android="4" />
+                            </StackLayout.Spacing>
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame HorizontalOptions="FillAndExpand"
+                                           VerticalOptions="Start"
+                                           CornerRadius="5"
+                                           Padding="10,5"
+                                           BackgroundColor="{Binding ButtonColor}">
+                                        <Frame.HeightRequest>
+                                            <OnPlatform x:TypeArguments="x:Double"
+                                                        iOS="44"
+                                                        Android="38" />
+                                        </Frame.HeightRequest>
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding TapCommand}"
+                                                                  CommandParameter="{Binding ExternalLoginProvider}"
+                                                                  NumberOfTapsRequired="1" />
+                                        </Frame.GestureRecognizers>
+                                        <StackLayout HorizontalOptions="FillAndExpand"
+                                                     VerticalOptions="Center"
+                                                     Spacing="5"
+                                                     Orientation="Horizontal">
+                                            <Image HorizontalOptions="Start"
+                                                   VerticalOptions="Center"
+                                                   HeightRequest="24"
+                                                   WidthRequest="24"
+                                                   Source="{Binding SocialAppIcon}" />
+                                            <Label Style="{StaticResource InfoLabelStyle}"
+                                                   VerticalOptions="FillAndExpand"
+                                                   VerticalTextAlignment="Center"
+                                                   FontFamily="{StaticResource  SFProDisplayMedium}"
+                                                   Text="{Binding SocialAppIntegrationType}" />
+                                        </StackLayout>
+                                    </Frame>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+                        <Label Style="{StaticResource SmallSilverHeaderStyle}"
+                               HorizontalOptions="FillAndExpand"
+                               HorizontalTextAlignment="Center"
+                               TextColor="{x:Static constants:AppThemeConstants.GradientPurpleColor}">
+                            <Label.Margin>
+                                <OnPlatform x:TypeArguments="Thickness"
+                                            iOS="0,15"
+                                            Android="0,8" />
+                            </Label.Margin>
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding LoginCommand}"
+                                                      NumberOfTapsRequired="1" />
+                            </Label.GestureRecognizers>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Already have an account?"
+                                          FontFamily="{StaticResource SFProDisplayRegular}" />
+                                    <Span Text=" Login instead"
+                                          TextDecorations="Underline"
+                                          FontFamily="{StaticResource SFProDisplayBold}"
+                                          FontAttributes="Bold" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </pancakeview:PancakeView>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

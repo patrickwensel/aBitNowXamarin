@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:constants="clr-namespace:ABitNowMobileApp.Constants"
+             xmlns:cachedImage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:transformation="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:behaviors="clr-namespace:ABitNowMobileApp.Behaviors"
+             x:Class="ABitNowMobileApp.Controls.SideMenu">
+    <ContentView.Resources>
+        <StyleSheetExtension Source="../CSS/BaseStyle.css" />
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Grid HorizontalOptions="FillAndExpand"
+              VerticalOptions="FillAndExpand"
+              ColumnSpacing="0"
+              x:Name="MenuGrid">
+            <Grid.GestureRecognizers>
+                <PanGestureRecognizer PanUpdated="OnPanUpdated" />
+            </Grid.GestureRecognizers>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.25*" />
+                <ColumnDefinition Width="0.75*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition>
+                    <RowDefinition.Height>
+                        <OnPlatform x:TypeArguments="GridLength"
+                                    iOS="0.12*"
+                                    Android="20" />
+                    </RowDefinition.Height>
+                </RowDefinition>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <pancakeview:PancakeView Grid.Row="0"
+                                     Grid.Column="0"
+                                     Grid.RowSpan="4"
+                                     x:Name="PVLeftSide"
+                                     HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="FillAndExpand"
+                                     CornerRadius="0"
+                                     BackgroundColor="{x:Static constants:AppThemeConstants.SideMenuDarkColor}">
+                <!--<pancakeview:PancakeView.BackgroundGradientStops>
+                    <pancakeview:GradientStopCollection>
+                        <pancakeview:GradientStop Color="{x:Static constants:AppThemeConstants.SideMenuColor}" Offset="0" />
+                        <pancakeview:GradientStop Color="{x:Static constants:AppThemeConstants.SideMenuDarkColor}" Offset="0.15" />
+                        <pancakeview:GradientStop Color="{x:Static constants:AppThemeConstants.SideMenuColor}" Offset="0.45" />
+                        <pancakeview:GradientStop Color="{x:Static constants:AppThemeConstants.SideMenuDarkColor}" Offset="1" />
+                    </pancakeview:GradientStopCollection>
+                </pancakeview:PancakeView.BackgroundGradientStops>-->
+            </pancakeview:PancakeView>
+            <Image Grid.Row="0"
+                   Grid.Column="0"
+                   Grid.RowSpan="4"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   Source="RightArrow">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="CloseSideMenuTapped"
+                                          NumberOfTapsRequired="1" />
+                </Image.GestureRecognizers>
+            </Image>
+            <BoxView Grid.Row="0"
+                     Grid.Column="1"
+                     Grid.RowSpan="4"
+                     x:Name="BVRightSide"
+                     HorizontalOptions="FillAndExpand"
+                     VerticalOptions="FillAndExpand"
+                     BackgroundColor="{x:Static constants:AppThemeConstants.SideMenuColor}">
+            </BoxView>
+            <Grid x:Name="UserInfoGrid"
+                  Grid.Row="1"
+                  Grid.Column="1"
+                  IsVisible="False"
+                  RowSpacing="0"
+                  ColumnSpacing="9"
+                  Padding="23,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <cachedImage:CachedImage Grid.Row="0"
+                                         Grid.Column="0"
+                                         Grid.RowSpan="2"
+                                         x:Name="CIUserIcon"
+                                         DownsampleToViewSize="True"
+                                         HorizontalOptions="FillAndExpand"
+                                         VerticalOptions="FillAndExpand"
+                                         Aspect="AspectFit"
+                                         LoadingPlaceholder="IcoUser">
+                    <cachedImage:CachedImage.Transformations>
+                        <transformation:CircleTransformation />
+                    </cachedImage:CachedImage.Transformations>
+                </cachedImage:CachedImage>
+                <Label Grid.Row="0"
+                       Grid.Column="1"
+                       x:Name="LblName"
+                       HorizontalOptions="FillAndExpand"
+                       VerticalOptions="End"
+                       Style="{StaticResource HeaderLabelStyle}"
+                       TextColor="White"
+                       FontFamily="{StaticResource SFProDisplayRegular}" />
+                <Label Grid.Row="1"
+                       Grid.Column="1"
+                       x:Name="LblEmail"
+                       HorizontalOptions="FillAndExpand"
+                       VerticalOptions="Start"
+                       Style="{StaticResource SmallHeaderLabelStyle}"
+                       TextColor="{x:Static constants:AppThemeConstants.LightBlueColor2}"
+                       FontFamily="{StaticResource SFProDisplayRegular}" />
+            </Grid>
+            <BoxView Grid.Row="1"
+                     Grid.Column="1"
+                     x:Name="BVLogin"
+                     Margin="17,0,17,17"
+                     CornerRadius="10"
+                     HorizontalOptions="FillAndExpand"
+                     VerticalOptions="FillAndExpand"
+                     Color="#000000"
+                     Opacity="0.1" />
+            <Frame Grid.Row="1"
+                   Grid.Column="1"
+                   x:Name="FrLogin"
+                   Margin="17,0,17,17"
+                   Padding="18"
+                   CornerRadius="10"
+                   HasShadow="False"
+                   BackgroundColor="Transparent">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnLoginSectionTapped"
+                                          NumberOfTapsRequired="1" />
+                </Frame.GestureRecognizers>
+                <StackLayout HorizontalOptions="Center"
+                             VerticalOptions="Center"
+                             Orientation="Vertical"
+                             Opacity="1"
+                             Spacing="5">
+                    <Label HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           VerticalTextAlignment="Center"
+                           Text="&#xf2bd;"
+                           TextColor="#FFFFFF"
+                           Opacity="0.54"
+                           FontSize="{x:Static constants:AppThemeConstants.LargeIconFontSize}"
+                           FontFamily="{StaticResource FontAwesomeSolid}" />
+                    <Label HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Style="{StaticResource ButtonLabelStyle}"
+                           Text="Log in" />
+                    <Label HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Style="{StaticResource InfoLabelStyle}"
+                           TextColor="{x:Static constants:AppThemeConstants.LightBlueColor2}"
+                           Text="And access to all your orders" />
+                </StackLayout>
+            </Frame>
+            <syncfusion:SfListView Grid.Row="2"
+                                   Grid.Column="1"
+                                   x:Name="LstMenu"
+                                   ItemSize="65"
+                                   ItemTapped="OnMenuOptionSelected"
+                                   BackgroundColor="Transparent"
+                                   SelectionBackgroundColor="#44FFFFFF"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="Start"
+                                   SelectionMode="Single">
+                <syncfusion:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Label HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="Center"
+                                   Margin="29,20"
+                                   TextColor="White"
+                                   Text="{Binding Name}"
+                                   FontFamily="{StaticResource HelveticaNeueLight}"
+                                   FontSize="17" />
+                        </ViewCell>
+                    </DataTemplate>
+                </syncfusion:SfListView.ItemTemplate>
+            </syncfusion:SfListView>
+            <StackLayout Grid.Row="3"
+                         Grid.Column="1"
+                         IsVisible="False"
+                         x:Name="BottomStack"
+                         HorizontalOptions="FillAndExpand"
+                         VerticalOptions="Start"
+                         Padding="29,0,29,29">
+                <BoxView HorizontalOptions="FillAndExpand"
+                         VerticalOptions="Start"
+                         HeightRequest="1"
+                         Color="White"
+                         Opacity="0.26" />
+                <Button Margin="0,29"
+                        x:Name="BtnLogout"
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center"
+                        TextColor="White"
+                        Text="Logout"
+                        BackgroundColor="Transparent"
+                        FontFamily="{StaticResource HelveticaNeueLight}"
+                        Command="{Binding LogoutCommand}"
+                        FontSize="17" />
+            </StackLayout>
+        </Grid>
+    </ContentView.Content>
+</ContentView>
