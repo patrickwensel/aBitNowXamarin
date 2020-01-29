@@ -1,2 +1,0 @@
-# ABitNowMobile
-ABitNowMobile Development 
